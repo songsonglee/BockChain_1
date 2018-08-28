@@ -21,7 +21,7 @@ public class Util {
 		}
 		return result.toString();
 	}
-	//현재 날짜를 yyyy/mm/dd 형식의 문자열로 바꿔주는 함수
+	//현재 날짜를 yyyy.mm.dd 형식의 문자열로 바꿔주는 함수
 	public static String getDate() {
 		Calendar cal = Calendar.getInstance();
 		String year = new Integer(cal.get(Calendar.YEAR)).toString();
