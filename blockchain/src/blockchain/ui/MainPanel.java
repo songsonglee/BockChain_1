@@ -16,7 +16,7 @@ public class MainPanel extends JPanel {
 		setLayout(new BorderLayout());
 		
 		tabPanel = new JTabbedPane(JTabbedPane.TOP);
-		tabPanel.setFont(new Font("±¼¸²Ã¼", Font.BOLD, 30));
+		//tabPanel.setFont(new Font("±¼¸²Ã¼", Font.BOLD, 30));
 		makeTabPanel();
 		
 		add(tabPanel, BorderLayout.NORTH);

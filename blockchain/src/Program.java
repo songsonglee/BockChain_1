@@ -13,14 +13,14 @@ import util.EC;
 
 public class Program {
 	public static void main(String args[]) throws Exception{
-	//	MainFrame mainframe = new MainFrame();
+		MainFrame mainframe = new MainFrame();
 		/*
 		Block block1 = new Block(1, null, new ArrayList<Transaction>());
 		Block block2 = new Block(2, block1.getBlockHash(), new ArrayList<Transaction>());
 		Register test = new Register("성북구 보문로29길 27", "오미숙");
 		block2.addTransaction(new Transaction(test, "이경훈", 100000000));
 		block2.printInfo();
-		*/
+		
 	    Security.addProvider(new BouncyCastleProvider());
 	    EC ec = new EC();
 	    ec.generate("private1.pem", "public1.pem");
@@ -51,6 +51,6 @@ public class Program {
 	    boolean result = signature.verify(baSignature);
 	    // 개인키와 매칭되는 공개키가 아니므로 복호화에 실패합니다.
 	    System.out.println("신원 검증: " + result);
-
+*/
 	  }
 }
