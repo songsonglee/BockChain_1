@@ -8,24 +8,17 @@ public class MainPanel extends JPanel {
 	private JTabbedPane tabPanel;
 	
 	private void makeTabPanel() {
-		tabPanel.addTab("등기 검색", new JLabel("등기 검색", SwingConstants.CENTER));
-		tabPanel.addTab("계약", new JLabel("계약", SwingConstants.CENTER));
+		tabPanel.addTab("등기 검색", new InfoPanel());
+		tabPanel.addTab("계약", new ConPanel());
 	}
 	
 	MainPanel(){
 		setLayout(new BorderLayout());
 		
-		tempPanel = new JPanel();
-		tempPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
-		tempPanel.add(new JButton("temp"));
-		tempPanel.add(new JButton("test"));
-		tempPanel.add(new JButton("LKH"));
-		
-		tabPanel = new JTabbedPane(JTabbedPane.BOTTOM);
-		tabPanel.setFont(new Font("Gulim", Font.BOLD, 30));
+		tabPanel = new JTabbedPane(JTabbedPane.TOP);
+		tabPanel.setFont(new Font("굴림체", Font.BOLD, 30));
 		makeTabPanel();
 		
-		add(new InfoPanel(), BorderLayout.CENTER);
 		add(tabPanel, BorderLayout.NORTH);
 	}
 }
