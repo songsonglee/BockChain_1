@@ -39,19 +39,6 @@ public class Block {
 		return this.registerIDList;
 	}
 
-	
-	
-	public Block(int blockID, String previousBlockHash,  ArrayList<Transaction> transactionList) {
-		this.blockID = blockID;
-		this.previousBlockHash = previousBlockHash;
-		this.transactionList = transactionList;
-		this.registerIDList = new ArrayList<String>();
-		for (int i = 0; i < transactionList.size(); i++) {
-			registerIDList.add(transactionList.get(i).getRegisterID());
-		}
-	}
-	
-	
 	public void addTransaction(Transaction transaction) {
 		transactionList.add(transaction);
 		registerIDList.add(transaction.getRegisterID());
@@ -65,7 +52,7 @@ public class Block {
 		System.out.println("Bblock Hash: " + getBlockHash());
 		System.out.println("transaction Info: ");
 		for (int i = 0; i < transactionList.size(); i++) {
-			System.out.println(transactionList.get(i).getInformation());
+			System.out.println(transactionList.get(i).getData());
 		}
 		System.out.println("------------------------------");
 	}
@@ -90,5 +77,15 @@ public class Block {
 			transactionInformation += transactionList.get(i).getInformation();
 		}
 		return Util.getHash(transactionInformation + previousBlockHash);
+	}	
+	
+	public Block(int blockID, String previousBlockHash,  ArrayList<Transaction> transactionList) {
+		this.blockID = blockID;
+		this.previousBlockHash = previousBlockHash;
+		this.transactionList = transactionList;
+		this.registerIDList = new ArrayList<String>();
+		for (int i = 0; i < transactionList.size(); i++) {
+			registerIDList.add(transactionList.get(i).getRegisterID());
+		}
 	}
 }

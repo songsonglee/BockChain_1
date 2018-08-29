@@ -15,10 +15,6 @@ import org.bouncycastle.util.io.pem.PemWriter;
 public class Pem {
 	private PemObject pemObject;
 	
-	public Pem(Key key, String description) {
-		this.pemObject = new PemObject(description, key.getEncoded());
-	}
-	
 	public void write(String filename) throws FileNotFoundException, IOException{
 		PemWriter pemWriter = new PemWriter(new OutputStreamWriter(new FileOutputStream(filename)));
 		try {
@@ -27,4 +23,10 @@ public class Pem {
 			pemWriter.close();
 		}
 	}
+	
+	public Pem(Key key, String description) {
+		this.pemObject = new PemObject(description, key.getEncoded());
+	}
+	
+
 }

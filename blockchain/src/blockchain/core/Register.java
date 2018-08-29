@@ -77,26 +77,6 @@ public class Register {
 		this.price = tmp.toString();
 	}
 
-	public Register() {
-		this.registerID = " ";
-		this.addr = " ";
-		this.owner = " ";
-		this.isOnContract = false;
-		this.buyer = " ";
-		this.startDate = " ";
-		this.finishDate = " ";
-		this.price = " " ;
-	}
-	public Register(String addr, String owner) {
-		this.registerID = Util.getHash(addr);
-		this.addr = addr;
-		this.owner = owner;
-		this.isOnContract = false;
-		this.buyer = " ";
-		this.startDate = " ";
-		this.finishDate = " ";
-		this.price = " " ;
-	}
 
 	//함수를 호출한 시간을 계약시간으로 해서 계약정보 수정하기
 	public void makeContract(String buyer, int price) {
@@ -124,7 +104,7 @@ public class Register {
 		this.finishDate = origin.getFinishDate();
 		this.price = origin.getPrice();
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	public String getInformation() {
 		JSONObject jsonObj = new JSONObject();
@@ -143,5 +123,25 @@ public class Register {
 		jsonObj.put("계약 종료일", getFinishDate());
 
 		return jsonObj.toString(); 
+	}
+	public Register() {
+		this.registerID = " ";
+		this.addr = " ";
+		this.owner = " ";
+		this.isOnContract = false;
+		this.buyer = " ";
+		this.startDate = " ";
+		this.finishDate = " ";
+		this.price = " " ;
+	}
+	public Register(String addr, String owner) {
+		this.registerID = Util.getHash(addr);
+		this.addr = addr;
+		this.owner = owner;
+		this.isOnContract = false;
+		this.buyer = " ";
+		this.startDate = " ";
+		this.finishDate = " ";
+		this.price = " " ;
 	}
 }

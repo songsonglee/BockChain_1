@@ -7,6 +7,11 @@ public class MainPanel extends JPanel {
 	private JPanel tempPanel;
 	private JTabbedPane tabPanel;
 	
+	private void makeTabPanel() {
+		tabPanel.addTab("등기 검색", new JLabel("등기 검색", SwingConstants.CENTER));
+		tabPanel.addTab("계약", new JLabel("계약", SwingConstants.CENTER));
+	}
+	
 	MainPanel(){
 		setLayout(new BorderLayout());
 		
@@ -16,19 +21,12 @@ public class MainPanel extends JPanel {
 		tempPanel.add(new JButton("test"));
 		tempPanel.add(new JButton("LKH"));
 		
-		
 		tabPanel = new JTabbedPane(JTabbedPane.BOTTOM);
 		tabPanel.setFont(new Font("Gulim", Font.BOLD, 30));
 		makeTabPanel();
 		
 		add(new InfoPanel(), BorderLayout.CENTER);
 		add(tabPanel, BorderLayout.NORTH);
-		
-	}
-
-	private void makeTabPanel() {
-		tabPanel.addTab("등기 검색", new JLabel("등기 검색", SwingConstants.CENTER));
-		tabPanel.addTab("계약", new JLabel("계약", SwingConstants.CENTER));
 	}
 }
 

@@ -10,6 +10,14 @@ public class InfoPanel extends JPanel{
 	private JPanel center;
 	private JPanel west;
 
+	private void makeWest() {
+		String tabs[] = {"주소: ", "소유주: ", "계약 정보", "매수자: ", "매도자: ", "계약 시작일: ", "계약 금액: "};
+		west.setLayout(new GridLayout(7,1));
+		for(String tb: tabs) {
+			west.add(new Label(tb));
+		}
+	}
+	
 	public InfoPanel(){
 		setLayout(new BorderLayout());
 		
@@ -49,14 +57,7 @@ public class InfoPanel extends JPanel{
 		add(new JLabel("이경훈", SwingConstants.CENTER));
 */
 	}
-	private void makeWest() {
-		String tabs[] = {"주소: ", "소유주: ", "계약 정보", "매수자: ", "매도자: ", "계약 시작일: ", "계약 금액: "};
-		west.setLayout(new GridLayout(7,1));
-		for(String tb: tabs) {
-			west.add(new Label(tb));
-		}
-		
-	}
+
 /*
 	private void makePanel(JPanel pan, JLabel addr) {
 		pan.setLayout(new GridLayout(7, 1));
