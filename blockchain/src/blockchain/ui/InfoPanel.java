@@ -56,6 +56,7 @@ public class InfoPanel extends JPanel{
 		add(new JLabel("소유주: ", SwingConstants.CENTER));
 		add(new JLabel("이경훈", SwingConstants.CENTER));
 */
+		
 	}
 
 /*
