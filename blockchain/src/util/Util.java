@@ -1,11 +1,21 @@
 package util;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.security.MessageDigest;
+import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 
 public class Util {
+
 	public enum chType { MAKE_CONTRACT, CHANGE_OWNER }
+
 	public static String getHash(String input) {
 		StringBuffer result = new StringBuffer();
 		
@@ -28,5 +38,51 @@ public class Util {
 		String month = new Integer(cal.get(Calendar.MONTH)).toString();
 		String date = new Integer(cal.get(Calendar.DAY_OF_MONTH)).toString();
 		return year + "." + month + "." + date;
+	}
+
+	//timestamp를 yyyy.mm.dd형식의 문자열로 바꿔주는 함수
+	public static String getDate(Timestamp timestamp) {
+		String year = new Integer(timestamp.getYear()).toString();
+		String month = new Integer(timestamp.getMonth()).toString();
+		String date = new Integer(timestamp.getDate()).toString();
+		return year + "." + month + "." + date;
+	}
+	
+	public static void fileWrite(String filename, String data) {
+		try {
+			File file = new File(filename);
+			BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(filename));
+			if(file.isFile() && file.canWrite()) {
+				bufferedWriter.write(data);
+				bufferedWriter.close();
+			}
+		}
+		catch (IOException ioe) {
+			System.out.println("파일 쓰기 실패");
+		}
+		finally {
+		}
+	}
+	public static ArrayList<String> fileReader(String filename) {
+		ArrayList<String> result = new ArrayList<String>(); 
+
+		try {
+			File file = new File(filename);
+			FileReader fileReader = new FileReader(file);
+			BufferedReader bufReader = new BufferedReader(fileReader);
+			String line = "";
+
+			while((line = bufReader.readLine()) != null){
+				result.add(line);
+			}
+			bufReader.close();
+			return result;
+		}
+		catch(FileNotFoundException e) {
+			
+		}catch(IOException e) {
+			System.out.println(e);
+		}
+		return null;
 	}
 }
